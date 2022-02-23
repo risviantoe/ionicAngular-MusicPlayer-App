@@ -1,0 +1,27 @@
+<ion-content [fullscreen]="true" class="bg-img ion-padding content-padding">
+  <div class="container">
+    <center>
+      <ion-img class="logo" src="../../assets/img/logo.png"></ion-img>
+    </center>
+
+    <h1>Sapitify</h1>
+    <form #form="ngForm" (ngSubmit)="login(form)" methode="post">
+      <div class="container-input">
+        <ion-item color="transparent" class="ion-no-padding">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" name="email" ngModel></ion-input>
+        </ion-item>
+        <ion-item color="transparent" style="margin-top:5px;" class="ion-no-padding i-touc">
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" name="password" ngModel></ion-input>
+        </ion-item>
+      </div>
+
+      <ion-col>
+        <ion-button type="submit" color="dark" class="login" fill="outline">Login</ion-button>
+      </ion-col>
+    </form>
+    <br />
+    <small>Belum punya akun?</small> <small button class="daftar" (click)="modalRegister()"> Daftar sekarang</small>
+  </div>
+</ion-content>

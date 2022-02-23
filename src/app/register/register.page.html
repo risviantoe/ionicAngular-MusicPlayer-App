@@ -1,0 +1,35 @@
+<ion-header style="height:100px;" lines="none">
+  <ion-button fill="clear" style="height: 100%; margin-left:15px;" (click)="loginDismiss()">
+    <ion-icon color="dark" name="chevron-back"></ion-icon>
+  </ion-button>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="bg-img ion-padding content-padding">
+  <div class="container">
+    <center>
+      <ion-img class="logo" src="../../assets/img/logo.png"></ion-img>
+    </center>
+
+    <h1>Sapitify</h1>
+    <form #form="ngForm" (ngSubmit)="register(form)" methode="post">
+      <div class="container-input">
+        <ion-item color="transparent" class="ion-no-padding">
+          <ion-label position="floating">Username</ion-label>
+          <ion-input type="username" name="username" ngModel></ion-input>
+        </ion-item>
+        <ion-item color="transparent" style="margin-top:5px;" class="ion-no-padding">
+          <ion-label position="floating">Email</ion-label>
+          <ion-input type="email" name="email" ngModel></ion-input>
+        </ion-item>
+        <ion-item color="transparent" style="margin-top:5px;" class="ion-no-padding">
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" name="password" ngModel></ion-input>
+        </ion-item>
+      </div>
+
+      <ion-col>
+        <ion-button type="submit" color="dark" class="daftar" fill="outline">Daftar</ion-button>
+      </ion-col>
+    </form>
+  </div>
+</ion-content>

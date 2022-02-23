@@ -1,0 +1,24 @@
+<ion-header style="height:100px;">
+  <ion-button fill="clear" style="height: 100%; margin-left:15px;" (click)="back()">
+    <ion-icon color="dark" name="chevron-back"></ion-icon>
+  </ion-button>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="bg-img ion-padding content-padding">
+  <div class="container-input">
+    <span>Edit nama playlist-mu</span>
+    <form [formGroup]='form'>
+      <ion-input formControlName="nama_playlist" class="input"></ion-input>
+      <!-- <input type="hidden" value="{{user['id']}}"> -->
+      <ion-input type="hidden" value="{{playlist['id']}}" formControlName="id"></ion-input>
+      <!-- <ion-input formControlName="name" class="input" type="text" [(ngModel)]="in_playlist" placeholder="{{playlist.nama_playlist}}"></ion-input> -->
+      <!-- <ion-input  [(ngModel)]="in_id_user" type="hidden" value="{{user['id']}}"> </ion-input> -->
+      <ion-row>
+        <ion-col>
+          <ion-button class="batal" fill="clear" (click)="clear()">Batal</ion-button>
+          <ion-button class="simpan" color="tertiary" (click)="save(playlist)">Edit</ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </div>
+</ion-content>

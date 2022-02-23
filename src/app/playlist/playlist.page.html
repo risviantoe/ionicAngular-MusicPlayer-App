@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-searchbar class="fa-search" placeholder="Search" [(ngModel)]="filterTerm"></ion-searchbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="bg-img ion-padding content-padding">
+
+  <h1 class="heading">Playlist</h1> <br />
+  <ion-row tappable (click)="openCreateModal()">
+    <ion-col size="1.5">
+      <ion-icon style="color: #7F7DF1;width:25px;height:25px" name="add-circle"></ion-icon>
+    </ion-col>
+    <ion-col>
+      <span class="pl-baru">Playlist Baru</span>
+    </ion-col>
+  </ion-row>
+  <ion-list class="bg-transparant">
+    <div *ngFor="let track of playlist | filter:filterTerm; let i = index">
+      <ion-item (click)="detail(track)" lines="none" color="transparent" class="ion-no-padding container-music">
+        <ion-thumbnail slot="start">
+          <img src="http://127.0.0.1:8000/playlist/logo.jpg" class="thumbnail">
+        </ion-thumbnail>
+        <ion-item tappable (click)="playlistItem(track)" class="ion-no-padding bg-transparant container-title" style="margin:0" color="transparant" lines="none"
+          (click)="start(track)">
+          <ion-label id="music-detail" [color]="track == activeTrack ? 'success' : 'dark'">
+            <span class="music-title">{{track.nama_playlist}}</span>
+          </ion-label>
+
+
+        </ion-item>
+        <!-- <ion-label class="duration">{{track.duration}}</ion-label> -->
+        <ion-button fill="clear" style="height: 100%; margin-left:15px;" (click)="handleButtonClick(i)">
+          <ion-icon color="dark" name="ellipsis-vertical"></ion-icon>
+        </ion-button>
+      </ion-item>
+      <ion-row *ngIf="track.open">
+        <ion-col>
+          <ion-button  color="danger" class="action" (click)="delete(track)">
+            Hapus
+          </ion-button>
+        </ion-col>
+        <ion-col>
+          <ion-button  color="tertiary" class="action" (click)="openEditModal(track)">
+            Edit
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-list>
+
+</ion-content>
+
+<ion-fab vertical="center" horizontal="end" slot="fixed">
+  <ion-fab-button color="tertiary" (click)="backToDaftarMusik()">
+    <ion-icon name="return-down-back-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>

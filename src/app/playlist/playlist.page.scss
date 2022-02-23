@@ -1,0 +1,150 @@
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
+.heading{
+  color: #686984;
+}
+
+#container {
+  text-align: center;
+
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+
+  color: #8c8c8c;
+
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+.fa-search{
+  background: transparent;
+}
+
+#container-content{
+  left: 15px;
+  top: 86px;
+  margin-right: 15px;
+  --padding: 10 5 10 5;
+  border: 1px solid;
+}
+
+// .bg-img{
+  // // --background: url('../../assets/img/bg.jpg');
+  // --background-size: contain;
+  // width: 100%;
+  // height: 100%;
+  // --background-repeat: no-repeat;
+// }
+
+.bg-transparant{
+  background: transparent;
+}
+
+.pl-baru{
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #686984;
+}
+
+.content-padding{
+  --padding-start: var(--ion-padding, 35px);
+  --padding-end: var(--ion-padding, 35px);
+}
+
+.thumbnail{
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.container-music{
+  border-bottom: 1px solid rgba(104, 105, 132, 0.2);
+  padding: 15px 10px;
+  --border-radius: 8px;
+}
+
+.music-title{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 27px;
+  color: #686984;
+}
+
+.singer{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  color: #8081A3;
+}
+
+.duration{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.container-title{
+  width: 155px !important;
+}
+
+.border{
+  border: 1px solid;
+}
+
+.bg-footer{
+  --background: url('../../assets/img/bg-footer.png');
+  height: 90px;
+  width: 375px;
+  padding: 13px;
+  // --background: #E8E5F9;
+  // border-radius: 15px 15px 0px 0px;
+  // --padding-bottom: var(--ion-padding, 35px);
+  // --background: var(--ion-background-color, linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.2) 100%));
+}
+
+ion-searchbar{
+  --background: var(--ion-background-color, rgba(255, 255, 255, 0.2));
+}
+
+.p-button{
+  color: #7F7DF1;
+  height: 55px;
+  width: 55px;
+}
+
+.prev-next{
+  color: #686984;
+}
+
+.action{
+  height: 30px;
+  width: 100%;
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: normal;
+  // border: 1px solid #686984;
+  // border-radius: 5px;
+  align-self: center;
+}

@@ -1,0 +1,82 @@
+<ion-header style="height:100px;">
+  <ion-button fill="clear" style="height: 100%; margin-left:15px;" (click)="back()">
+    <ion-icon color="dark" name="chevron-back"></ion-icon>
+  </ion-button>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="bg-img ion-padding content-padding">
+  <div class="container">
+    <center>
+      <img class="logo" src="http://127.0.0.1:8000/playlist/logo.jpg">
+    </center>
+
+    <h4>{{playlist.nama_playlist}}</h4>
+    <ion-row class="ion-justify-content-center" >
+      <ion-col style="margin-left: 40px;" size="3.5">
+        <ion-button class="play" color="tertiary" (click)="togglePlayer(false)" *ngIf="!playing">Play</ion-button>
+        <ion-button class="play" color="tertiary" (click)="togglePlayer(true)" *ngIf="playing">Pause</ion-button>
+      </ion-col>
+      <ion-col size="1.8">
+        <ion-tab-button>
+          <ion-icon class="i-add" name="add-circle-outline" (click)="addTrack(playlist)"></ion-icon>
+        </ion-tab-button>
+      </ion-col>
+    </ion-row>
+
+
+
+  </div>
+  <ion-list id="container-list" class="bg-transparant">
+    <div *ngFor="let track of playlistItem ; let i = index">
+      <ion-item tapabble lines="none" color="transparent" class="ion-no-padding container-music">
+        <ion-thumbnail slot="start">
+          <img src="http://127.0.0.1:8000/mp3/{{track.id_track}}/gambar/{{track.gambar}}" class="thumbnail">
+        </ion-thumbnail>
+        <ion-item class="ion-no-padding bg-transparant container-title" color="transparant" lines="none"
+          (click)="start(track)">
+          <ion-label id="music-detail" [color]="track == activeTrack ? 'success' : 'dark'">
+            <span class="music-title">{{track.nama_track}}</span> <br> <span class="singer">{{track.penyanyi}}</span>
+          </ion-label>
+        </ion-item>
+
+        <ion-button fill="clear" style="height: 100%; margin-left:15px;" (click)="handleButtonClick(i)">
+          <ion-icon color="dark" name="ellipsis-vertical"></ion-icon>
+        </ion-button>
+        <!-- <ion-label class="duration">{{track.duration}}</ion-label> -->
+
+      </ion-item>
+      <ion-row *ngIf="track.open">
+        <ion-col size="12">
+          <ion-button color="danger" class="action" (click)="hapus(track)">
+            Hapus
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-list>
+</ion-content>
+
+<ion-footer *ngIf="activeTrack">
+  <ion-toolbar class="bg-footer">
+    <ion-row>
+      <!-- <ion-col size="12" class="ion-text-center" color="success">{{ activeTrack.name }}</ion-col> -->
+      <ion-col size="12" class="ion-text-center">
+        <ion-button fill="clear" (click)="prev()" color="dark">
+          <ion-icon class="prev-next" slot="icon-only" name="play-skip-back"></ion-icon>
+        </ion-button>
+
+        <ion-button fill="clear" (click)="togglePlayer(false)" *ngIf="!playing" color="dark">
+          <ion-icon class="p-button" slot="icon-only" name="play"></ion-icon>
+        </ion-button>
+
+        <ion-button fill="clear" (click)="togglePlayer(true)" *ngIf="playing" color="dark">
+          <ion-icon class="p-button" slot="icon-only" name="pause"></ion-icon>
+        </ion-button>
+
+        <ion-button fill="clear" (click)="next()" color="dark">
+          <ion-icon class="prev-next" slot="icon-only" name="play-skip-forward"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

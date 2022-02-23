@@ -1,0 +1,69 @@
+<ion-header color="transparent">
+  <ion-searchbar class="fa-search" placeholder="Search" [(ngModel)]="filterTerm"></ion-searchbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="bg-img ion-padding content-padding">
+
+  <h1 class="heading">Daftar Musik</h1>
+  <!-- <span button (click)="logout()">Logout</span> -->
+  <ion-list id="container-list" class="bg-transparant">
+    <div *ngFor="let track of playlist | filter:filterTerm; let i = index">
+      <ion-item button (click)="detail(track)" lines="none" color="transparent" class="ion-no-padding container-music">
+        <ion-thumbnail slot="start">
+          <img src="http://127.0.0.1:8000/mp3/{{track.id}}/gambar/{{track.gambar}}" class="thumbnail">
+        </ion-thumbnail>
+        <ion-item class="ion-no-padding bg-transparant container-title" color="transparant" lines="none"
+          (click)="start(track)">
+          <ion-label id="music-detail" [color]="track == activeTrack ? 'success' : 'dark'">
+            <span class="music-title">{{track.nama}}</span> <br> <span class="singer">{{track.penyanyi}}</span>
+          </ion-label>
+        </ion-item>
+        <!-- <ion-label class="duration">{{track.duration}}</ion-label> -->
+
+      </ion-item>
+    </div>
+  </ion-list>
+
+</ion-content>
+
+<ion-fab vertical="center" horizontal="end" slot="fixed">
+  <ion-fab-button color="tertiary">
+    <ion-icon name="filter-outline"></ion-icon>
+  </ion-fab-button>
+  <ion-fab-list side="top">
+    <ion-fab-button color="tertiary" (click)="goToPlaylist()">
+      <ion-icon name="list-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+  <ion-fab-list side="bottom">
+    <ion-fab-button color="danger" (click)="logout()">
+      <ion-icon name="log-out-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab-list>
+</ion-fab>
+
+<!-- <ion-footer *ngIf="activeTrack"> -->
+
+  <ion-toolbar *ngIf="activeTrack" class="bg-footer">
+    <ion-row>
+      <!-- <ion-col size="12" class="ion-text-center" color="success">{{ activeTrack.name }}</ion-col> -->
+      <ion-col size="12" class="ion-text-center">
+        <ion-button fill="clear" (click)="prev()" color="dark">
+          <ion-icon class="prev-next" slot="icon-only" name="play-skip-back"></ion-icon>
+        </ion-button>
+
+        <ion-button fill="clear" (click)="togglePlayer(false)" *ngIf="!playing" color="dark">
+          <ion-icon class="p-button" slot="icon-only" name="play"></ion-icon>
+        </ion-button>
+
+        <ion-button fill="clear" (click)="togglePlayer(true)" *ngIf="playing" color="dark">
+          <ion-icon class="p-button" slot="icon-only" name="pause"></ion-icon>
+        </ion-button>
+
+        <ion-button fill="clear" (click)="next()" color="dark">
+          <ion-icon class="prev-next" slot="icon-only" name="play-skip-forward"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+<!-- </ion-footer> -->

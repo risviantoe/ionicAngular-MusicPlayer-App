@@ -1,0 +1,38 @@
+<ion-header color="transparent">
+  <ion-searchbar class="fa-search" placeholder="Search" [(ngModel)]="filterTerm"></ion-searchbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="bg-img ion-padding content-padding">
+
+  <h1 color="dark">Daftar Musik</h1>
+  <ion-list id="container-list" class="bg-transparant">
+    <div *ngFor="let tracks of track | filter:filterTerm; let i = index">
+      <ion-item (click)="handleButtonClick(i)" lines="none" color="transparent" class="ion-no-padding container-music">
+        <ion-thumbnail slot="start">
+          <img src="http://127.0.0.1:8000/mp3/{{tracks.id}}/gambar/{{tracks.gambar}}" class="thumbnail">
+        </ion-thumbnail>
+        <ion-item class="ion-no-padding bg-transparant container-title" color="transparant" lines="none">
+          <ion-label id="music-detail" [color]="tracks == activeTrack ? 'success' : 'dark'">
+            <span class="music-title">{{tracks.nama}}</span> <br> <span class="singer">{{tracks.penyanyi}}</span>
+          </ion-label>
+        </ion-item>
+        <!-- <ion-label class="duration">{{track.duration}}</ion-label> -->
+        <!-- <ion-checkbox [(ngModel)]="tracks.checked" slot="end" color="tertiary"></ion-checkbox> -->
+      </ion-item>
+      <ion-row *ngIf="tracks.open">
+        <ion-col size="12">
+          <ion-button color="tertiary" class="action" (click)="add(tracks)">
+            Tambah
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-list>
+
+  <ion-fab  vertical="bottom" slot="fixed" horizontal="center">
+    <ion-fab-button color="danger" (click)="back()">
+      <ion-icon name="close-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

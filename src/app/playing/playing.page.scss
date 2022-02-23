@@ -1,0 +1,75 @@
+*{
+  font-family: Poppins;
+}
+
+.container{
+  margin: 30px 10px;
+  text-align: center;
+}
+
+.gambar{
+  width: 175px;
+  height: 200px;
+  left: 100px;
+  top: 123px;
+  border-radius: 20px;
+}
+
+.text-np{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 18px;
+  /* identical to box height */
+
+  letter-spacing: 0.24em;
+
+  color: #686984;
+}
+
+.container h1{
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 45px;
+  /* identical to box height */
+
+  text-align: center;
+  letter-spacing: 0.24em;
+  margin-bottom: 0px;
+  color: #686984;
+}
+
+.container p{
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 18px;
+  /* identical to box height */
+  margin-top: 0px;
+
+  color: #8081A3;
+}
+
+.bg-footer{
+  // --background: url('../../assets/img/bg-footer.png');
+  height: 320px;
+  width: 375px;
+  padding: 13px;
+  --background: linear-gradient(180deg, rgba(255, 255, 255, 0.87) 0%, rgba(255, 255, 255, 0) 76.56%);
+  box-shadow: 0px 7px 20px rgba(125, 169, 241, 0.5);
+  border-radius: 50px 50px 0px 0px;
+  position: absolute;
+  bottom: 0;
+  left:0;
+}
+
+.p-button{
+  color: #7F7DF1;
+  height: 55px;
+  width: 55px;
+}
+
+.prev-next{
+  color: #686984;
+}
